@@ -10,9 +10,9 @@ import {
 
 function Add() {
   const [task, setTask] = useState();
-  const { data } = useGetAllTodos();
   const [editId, setEditId] = useState();
 
+  const { data } = useGetAllTodos();
   const { mutate: create } = useCreate();
   const { mutate: del } = useDeleteAllTodos();
   const { mutate: delId } = useDeleteById();
@@ -38,9 +38,7 @@ function Add() {
 
   const handleEdit = (item) => {
     setTask(item.title);
-    console.log('herrr', item.title);
     setEditId(item.id);
-    console.log('herrr', item.id);
   };
 
   const handleSubmit = async (e) => {
@@ -95,7 +93,7 @@ function Add() {
 
       <ul className="text" id="text">
         {data?.data.map((item) => (
-          <li key={item.id}>
+          <li key={item.id} style={{ marginBottom: '10px' }}>
             {item?.title}
             <div>
               <button
